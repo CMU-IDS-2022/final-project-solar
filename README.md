@@ -1,11 +1,9 @@
 # CMU Interactive Data Science Final Project
 
-* **Online URL**: TODO
+* **Online URL**: https://share.streamlit.io/cmu-ids-2022/final-project-solar/main
 * **Team members**:
-  * Contact person: TODO@andrew.cmu.edu
-  * TODO@andrew.cmu.edu
-  * TODO@andrew.cmu.edu
-  * TODO@andrew.cmu.edu
+  * Jamie Ho - jamieh@andrew.cmu.edu
+  * Yi Zhou - yzhou7@andrew.cmu.edu
 
 ## Work distribution
 
