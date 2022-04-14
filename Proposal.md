@@ -18,12 +18,28 @@ Another question we can focus on is: **How long would it take for renewable ener
 
 1. https://en.wikipedia.org/wiki/Glasgow_Climate_Pact
 2. https://endcoal.org/climate-change/#:~:text=Coal%20is%20the%20single%20biggest,emissions%20from%20the%20electricity%20sector.
-3. https://www.eia.gov/state/seds/sep_prod/SEDS_Production_Report.pdf
+3. https://www.eia.gov/state/seds/sep_prod/xls/Prod_dataset.xlsx
+4. https://www.ncsl.org/research/energy/renewable-portfolio-standards.aspx
 
 
 # Sketches and Data Analysis
 **Data Processing** 
-Do you have to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?  Show some screenshots of your data to demonstrate you have explored it.
+
+After looking at the Prod_dataset.xlsx dataset, we will do the following data cleanup:
+1. For each state, there are 29 rows of data for each type of energy production/consumption. We have identified the following energy type codes to use in our project: BDFDB, BFFDB, CLPRB, NCPRB, NGMPB, PAPRB, WDPRB. In particular, BDFDB, BFFDB, and WDPRB will be combined as one category of "biomass".
+2. Since the dataset includes energy data for every year between 1960-2019, we will only use and present data at 5-year increments so that it is more handleable. 
+3. We will also calculate the total energy and the percentage that each type of energy source makes up for each state at each time point. This will make the profile of the energy sources easily readible for the audience.
+4. We will have to scrap the renewable portfolio standard data from source #4 listed above. The data will have to also be added to our final dataset.
+
+Fig. 1: Energy codes that are coloured will be used in our project
+![alt text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/89197a87b412b94a71c46446393e54df2c421731/Dataset%20-%20Energy%20groupings.jpg)
+
+Fig. 2: Full dataset from 1960-2019
+![alt text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Dataset%20-%201960%20to%202019.jpg)
+
+In general, the data cleanup will be relatively straight forward. We plan to do the cleanup in Python and rewrite a new csv file with only the data that we need for this project.
+
+
 
 **System Design**
 How will you display your data? What types of interactions will you support? Provide some sketches that you have for the system design.
