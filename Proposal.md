@@ -26,15 +26,15 @@ Another question we can focus on is: **How long would it take for renewable ener
 **Data Processing** 
 
 After looking at the Prod_dataset.xlsx dataset, we will do the following data cleanup:
-1. For each state, there are 29 rows of data for each type of energy production/consumption. We have identified the following energy type codes to use in our project: BDFDB, BFFDB, CLPRB, NCPRB, NGMPB, PAPRB, WDPRB. In particular, BDFDB, BFFDB, and WDPRB will be combined as one category of "biomass".
+1. For each state, there are 29 rows of data for each type of energy production/consumption. We have identified the following energy type codes to use in our project: BDFDB, BFFDB, CLPRB, NCPRB, NGMPB, PAPRB, WDPRB. In particular, BDFDB, BFFDB, and WDPRB will be combined as one category of "biomass". (Refer Fig. 1)
 2. Since the dataset includes energy data for every year between 1960-2019, we will only use and present data at 5-year increments so that it is more handleable. 
-3. We will also calculate the total energy and the percentage that each type of energy source makes up for each state at each time point. This will make the profile of the energy sources easily readible for the audience.
+3. We will also calculate the total energy and the percentage that each type of energy source makes up for each state at each time point. This will make the profile of the energy sources easily readible for the audience. (Refer Fig. 2)
 4. We will have to scrap the renewable portfolio standard data from source #4 listed above. The data will have to also be added to our final dataset.
 
-Fig. 1: Energy codes that are coloured will be used in our project
+<em>Fig. 1: Energy codes that are coloured will be used in our project</em>
 ![alt text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/89197a87b412b94a71c46446393e54df2c421731/Dataset%20-%20Energy%20groupings.jpg)
 
-Fig. 2: Full dataset from 1960-2019
+<em>Fig. 2: Full dataset from 1960-2019</em>
 ![alt text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Dataset%20-%201960%20to%202019.jpg)
 
 In general, the data cleanup will be relatively straight forward. We plan to do the cleanup in Python and rewrite a new csv file with only the data that we need for this project.
