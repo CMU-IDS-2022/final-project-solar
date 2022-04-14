@@ -50,10 +50,15 @@ In general, the data cleanup will be relatively straight forward. We plan to do 
 
 **System Design**
 
-We will display our data using the US map of all the states and charts. On the map, we will colour code each state with its current stance on RPS. The tooltip feature will also show information, which includes the title of the energy standard, established date, requirement, applicable sectors, cost cap, details, enabling statute/code/order. 
+We will display our data using the US map of all the states and charts. On the map, we will colour code each state with its current stance on RPS (Sketch 1). The tooltip feature will also show information, which includes the title of the energy standard, established date, requirement, applicable sectors, cost cap, details, enabling statute/code/order. There will be a filter that allows the audience to select the state of interest to see its energy trends. This will act as filtering instead of showing all states. 
 
-There will be a filter that allows the audience to select the state of interest to see its energy trends. This will act as filtering instead of showing all states. For the charts, we will also provide an option to turn on or off the national average data that can be used for benchmarking. Within the charts, the tooltip will indicate the specific energy production in units of billion Btus as well as the percentage of the total. 
+For the first type of chart, we will also provide an option to turn on or off the national average data that can be used for benchmarking (Sketch 2). The tooltip will indicate the specific energy production in units of billion Btus as well as the percentage of the total. For the second type of chart, this is for comparison purposes between the energy productions of the user's selected states of interest (Sketch 3). For this chart, we will simplify the energy sources into renewable and fossil fuel only, which will allow for a cleaner graph.
 
+<em>Sketch 1: Map visualisation</em>
 ![alt_text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Sketch1.jpeg)
+
+<em>Sketch 2: First chart visualisation for focus on one state</em>
 ![alt_text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Sketch2.jpeg)
+
+<em>Sketch 3: Second chart visualisation for comparison of states</em>
 ![alt_text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Sketch3.jpg)
