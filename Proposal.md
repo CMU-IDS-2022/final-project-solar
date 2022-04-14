@@ -39,8 +39,9 @@ After looking at the Prod_dataset.xlsx dataset, we will do the following data cl
 
 In general, the data cleanup will be relatively straight forward. We plan to do the cleanup in Python and rewrite a new csv file with only the data that we need for this project.
 
+
 <em>Fig. 1: Energy codes that are coloured will be used in our project</em>
-![alt text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/89197a87b412b94a71c46446393e54df2c421731/Dataset%20-%20Energy%20groupings.jpg)
+![alt text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Dataset%20-%20Energy%20groupings.jpg)
 
 <em>Fig. 2: Full dataset from 1960-2019</em>
 ![alt text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Dataset%20-%201960%20to%202019.jpg)
@@ -52,3 +53,7 @@ In general, the data cleanup will be relatively straight forward. We plan to do 
 We will display our data using the US map of all the states and charts. On the map, we will colour code each state with its current stance on RPS. The tooltip feature will also show information, which includes the title of the energy standard, established date, requirement, applicable sectors, cost cap, details, enabling statute/code/order. 
 
 There will be a filter that allows the audience to select the state of interest to see its energy trends. This will act as filtering instead of showing all states. For the charts, we will also provide an option to turn on or off the national average data that can be used for benchmarking. Within the charts, the tooltip will indicate the specific energy production in units of billion Btus as well as the percentage of the total. 
+
+![alt_text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Sketch1.jpeg)
+![alt_text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Sketch2.jpeg)
+![alt_text](https://raw.githubusercontent.com/CMU-IDS-2022/final-project-solar/main/Sketch3.jpg)
