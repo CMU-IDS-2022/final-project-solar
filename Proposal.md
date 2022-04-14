@@ -16,6 +16,7 @@ In this final project, we plan to focus on the different US states and understan
 
 Another question we can focus on is: **How long would it take for renewable energy to replace fossil fuels?** So with our visualisation, we plan to use SKLearn to predict the energy percentages in the future. We can then use existing data to extrapolate trends about the future to see whether the current rate is reasonable to reach the state-defined RPS goals.
 
+
 1. https://en.wikipedia.org/wiki/Glasgow_Climate_Pact
 2. https://endcoal.org/climate-change/#:~:text=Coal%20is%20the%20single%20biggest,emissions%20from%20the%20electricity%20sector.
 3. https://www.eia.gov/state/seds/sep_prod/xls/Prod_dataset.xlsx
@@ -24,6 +25,7 @@ Another question we can focus on is: **How long would it take for renewable ener
 
 # Sketches and Data Analysis
 **Data Processing** 
+
 *Please note that the Summary section has also been updated.
 
 
@@ -31,7 +33,9 @@ After looking at the Prod_dataset.xlsx dataset, we will do the following data cl
 1. For each state, there are 29 rows of data for each type of energy production/consumption. We have identified the following energy type codes to use in our project: BDFDB, BFFDB, CLPRB, NCPRB, NGMPB, PAPRB, WDPRB. In particular, BDFDB, BFFDB, and WDPRB will be combined as one category of "biomass". (Refer Fig. 1)
 2. Since the dataset includes energy data for every year between 1960-2019, we will only use and present data at 5-year increments so that it is more handleable. 
 3. We will also calculate the total energy and the percentage that each type of energy source makes up for each state at each time point. This will make the profile of the energy sources easily readible for the audience. (Refer Fig. 2)
-4. We will have to scrap the renewable portfolio standard data from source #4 listed above. The data will have to also be added to our final dataset.
+4. We will have to scrap the renewable portfolio standard data from source #4 listed above. The data will have to also be added to our final dataset. Furtheromre, for each state, we will add a column that identifies the state's current stance on RPS: with RPS, with voluntary RPS or targets, with expired RPS goals, and with no standard/targets.
+5. We also plan to calculate the national average to display on the graph.
+
 
 In general, the data cleanup will be relatively straight forward. We plan to do the cleanup in Python and rewrite a new csv file with only the data that we need for this project.
 
@@ -44,6 +48,7 @@ In general, the data cleanup will be relatively straight forward. We plan to do 
 
 
 **System Design**
-How will you display your data? What types of interactions will you support? Provide some sketches that you have for the system design.
 
-We will display our data using the US map of all the states and charts. 
+We will display our data using the US map of all the states and charts. On the map, we will colour code each state with its current stance on RPS. The tooltip feature will also show information, which includes the title of the energy standard, established date, requirement, applicable sectors, cost cap, details, enabling statute/code/order. 
+
+There will be a filter that allows the audience to select the state of interest to see its energy trends. This will act as filtering instead of showing all states. For the charts, we will also provide an option to turn on or off the national average data that can be used for benchmarking. Within the charts, the tooltip will indicate the specific energy production in units of billion Btus as well as the percentage of the total. 
