@@ -19,3 +19,11 @@ Another question we can focus on is: **How long would it take for renewable ener
 1. https://en.wikipedia.org/wiki/Glasgow_Climate_Pact
 2. https://endcoal.org/climate-change/#:~:text=Coal%20is%20the%20single%20biggest,emissions%20from%20the%20electricity%20sector.
 3. https://www.eia.gov/state/seds/sep_prod/SEDS_Production_Report.pdf
+
+
+# Sketches and Data Analysis
+**Data Processing** 
+Do you have to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?  Show some screenshots of your data to demonstrate you have explored it.
+
+**System Design**
+How will you display your data? What types of interactions will you support? Provide some sketches that you have for the system design.
