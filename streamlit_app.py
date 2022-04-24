@@ -114,16 +114,20 @@ view_sel = st.selectbox("Would you like to see one or multiple states?",
 # boolean function for data that is in the selected state
 @st.cache
 def get_state_membership(df, state):
-    labels = pd.Series([1] * len(dfStateProd), index=dfStateProd.index)
+    labels = pd.Series([1] * len(df), index=df.index)
     if state:
-        labels &= dfStateProd['State'].isin(state)
-    print(labels)
+        labels &= df['State'].isin(state)
+        print(labels)
     return labels
 
+
+# to create the SINGLE state display
 if view_sel == 'Single':
     USstates = dfStateProd['State'].sort_values(ascending=True)
     state_sel = st.selectbox("Please select a state:", USstates.unique())
+    st.text(state_sel)
     state_membership = get_state_membership(dfStateProd, [state_sel])
+    st.text(state_membership)
     single_chart = (
         alt.Chart(dfStateProd[state_membership]).transform_fold(
             ['Biomass', 'Coal', 'Renewable Energy', 'Natural Gas', 'Crude Oil']
@@ -143,22 +147,175 @@ if view_sel == 'Single':
             height=350
         )
     )
-    # single_chart
+    benchmark = st.checkbox('Show US baseline')
+    if benchmark:
+        baseline_sel = st.selectbox('Which production type for the US baseline do you want to see?',
+                            ('Biomass', 'Coal', 'Renewable Energy', 'Natural Gas', 'Crude Oil'))
+        baseline_chart = (
+            alt.Chart(dfProduction).transform_fold(
+                [baseline_sel]
+            ).mark_line(
+                strokeDash=[5, 5],
+                strokeWidth=1.5
+            ).encode(
+                x='Year:T',
+                y=alt.Y('value:Q', 
+                        scale=alt.Scale(domain=[0, 100]),
+                        title='Percentage of Total Production'),
+                color=alt.Color('key:N', title='Production Type', scale=alt.Scale(
+                    domain=['Biomass', 'Coal', 'Renewable Energy', 'Natural Gas', 'Crude Oil'],
+                    range=['darkgreen', 'black', 'lightgreen', 'lightgray', 'gray'])),
+                tooltip=['Year:T', 'Total', baseline_sel]
+            ).properties(
+                width=700,
+                height=350
+            )
+        )
+        single_chart + baseline_chart
+    else:
+        single_chart
 
-    nearest = alt.selection(type='single', nearest=True, on='mouseover',
-                            fields=['Year'], empty='none')
-    selectors = alt.Chart(dfStateProd).mark_point().encode(
-        x='Year:T',
-        opacity=alt.value(0),
-    ).add_selection(
-        nearest
+
+# to create the MULTI state display
+if view_sel == 'Multiple':
+    USstates = dfStateProd['State'].sort_values(ascending=True)
+    state_sels = st.multiselect("Please select/deselect some states:", 
+                                USstates.unique())
+    st.text(state_sels)
+    state_membership = get_state_membership(dfStateProd, [state_sels])
+    print(state_membership)
+    st.text(state_membership)
+    multi_chart = (
+        alt.Chart(dfStateProd[state_membership]).transform_fold(
+            ['T_Renewables', 'T_FossilFuels']
+        ).mark_line().encode(
+            x='Year:T',
+            y=alt.Y('value:Q', 
+                    scale=alt.Scale(domain=[0, 100]),
+                    title='Percentage of Total Production'),
+            color=alt.Color('key:N', title='Production Type', scale=alt.Scale(
+                domain=['T_Renewables', 'T_FossilFuels'],
+                range=['darkgreen', 'gray'])),
+            tooltip=['State', 'Year:T', 'Total', 'T_Renewables', 'T_FossilFuels']
+        ).add_selection(
+            selection
+        ).properties(
+            width=700,
+            height=350
+        )
     )
-    text = single_chart.mark_text(align='left', dx=5, dy=-5).encode(
-        text=alt.condition(nearest, 'value:Q', alt.value(' '))
-    )
-    rules = alt.Chart(dfStateProd).mark_rule(color='gray').encode(
-        x='Year:T',
-    ).transform_filter(
-        nearest
-    )
-    alt.layer(single_chart, selectors, text, rules)
+    multi_chart
+
+
+
+
+
+
+
+    # nearest = alt.selection(type='single', nearest=True, on='mouseover',
+    #                         fields=['Year:T'], empty='none')
+    # selectors = alt.Chart(dfStateProd).mark_point().encode(
+    #     x='Year:T',
+    #     opacity=alt.value(0),
+    # ).add_selection(
+    #     nearest
+    # )
+    # text = single_chart.mark_text(align='left', dx=5, dy=-5).encode(
+    #     text=alt.condition(nearest, 'value:Q', alt.value(' '))
+    # )
+    # rules = alt.Chart(dfStateProd).mark_rule(color='gray').encode(
+    #     x='Year:T',
+    # ).transform_filter(
+    #     nearest
+    # )
+    # alt.layer(single_chart, selectors, text, rules)
+
+
+
+
+
+
+
+
+
+
+
+
+# '''
+
+# # dfProduction['Renewables'] = data['BDFDB'] + data['BFFDB']+ data['WDPRB']+ data['NCPRB']
+
+# # create a Python list of feature names
+# feature_cols = ['BDFDB','BFFDB', 'WDPRB','NCPRB']
+
+# # use the list to select a subset of the original DataFrame
+# x = dfProduction[feature_cols]
+
+# y = dfProduction['T_Renewables']
+# with st.spinner(text="Loading data..."):
+#     x
+#     y
+
+# from sklearn.model_selection import train_test_split
+# x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1)
+
+# # default split is 75% for training and 25% for testing
+# print(x_train.shape)
+# print(y_train.shape)
+# print(x_test.shape)
+# print(y_test.shape)
+
+# # import model
+# from sklearn.linear_model import LinearRegression
+
+# # instantiate
+# linreg = LinearRegression()
+
+# # fit the model to the training data (learn the coefficients)
+# linreg.fit(x_train, y_train)
+
+# # pair the feature names with the coefficients
+# list(zip(feature_cols, linreg.coef_))
+
+# # make predictions on the testing set
+# y_pred = linreg.predict(x_test)
+
+# print(y_pred)
+# pred_vals = linreg.predict(x_train)
+# residuals = pred_vals - y_train
+
+# d = {'col1': [1, 2], 'col2': [3, 4]}
+# df = pd.DataFrame(data=d)
+# df
+
+# plt.scatter(pred_vals, residuals)
+# plt.hlines(y=0, xmin=3000000, xmax=8000000)
+# plt.xlabel('Fitted values')
+# plt.ylabel('Residual')
+# plt.show()
+
+
+# ########################### Evaluate the model!
+# from sklearn import metrics
+# # calculate MAE using scikit-learn
+# print(metrics.mean_absolute_error(y_test, y_pred))
+
+# # calculate MSE using scikit-learn
+# print(metrics.mean_squared_error(y_test, y_pred))
+
+# # calculate RMSE using scikit-learn
+# print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
+# ########################### Regularization
+# from sklearn.linear_model import Lasso
+
+# # instantiate
+# linreg = Lasso(alpha = 1)
+
+# # fit the model to the training data (learn the coefficients)
+# linreg.fit(x_train, y_train)
+
+# y_pred = linreg.predict(x_test)
+# print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
+# '''
