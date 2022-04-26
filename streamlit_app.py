@@ -73,6 +73,7 @@ def get_state_membership(df, state):
 ### MAP SET-UP ###
 
 st.subheader("Current Targets for Each State")
+selection = alt.selection_multi()
 
 # to create choropleth map of state targets
 choropleth = (
@@ -92,6 +93,8 @@ choropleth = (
         height=500
     ).project(
         'albersUsa'
+    ).add_selection(
+        selection
     )
 )
 # to adjust the legend positioning
