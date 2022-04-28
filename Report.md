@@ -1,7 +1,8 @@
 # Final Project Report
 
 **Project URL**: https://share.streamlit.io/cmu-ids-2022/final-project-solar/main
-**Video URL**: TODO
+
+**Video URL**: https://drive.google.com/file/d/1OdglIg2WqwwrZ6Xt9pJTuWMMdQ81A2zH/view?usp=sharing
 
 ***Abstract*- During the COP26 conference in November 2021, the Glasgow Climate Pact was negotiated with representatives from 197 countries, which included a pact to phase out the use of coal for energy production and consumption [1]. The use of coal to generate energy produces carbon dioxide emissions as a byproduct, which is detrimental to the environment, thus making coal the biggest contributor to climate change [2]. Worse yet, coal is a nonrenewable resource. Therefore, in recent years, there has been a drive to use renewable resources to generate and consume clean energy through policy changes and promised targets. This project designs and deploys a Streamlit app that allows users to explore and compare existing trends in energy production and renewable energy targets for each US state between 1960 to 2019. In addition to exploration purposes, the Streamli app uses historical data to predict the changes in renewable versus non-renewable energy in the future. Ultimately, this project is intended to allow users to understand what the current progress is in the transition towards renewable energy and when nonrenewable energy might be fully phased out.**
 
