@@ -7,3 +7,5 @@ matplotlib
 sklearn
 skforecast
 joblib
+PIL
+warnings
