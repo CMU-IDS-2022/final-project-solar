@@ -6,6 +6,4 @@ numpy
 matplotlib
 sklearn
 skforecast
-PIL
 joblib
-warnings
