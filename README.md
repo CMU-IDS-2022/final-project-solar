@@ -29,7 +29,7 @@ Yi Zhou: Predictions on renewables and non-renewable energy use & Uncertainty as
 **Final deliverables**
 
 - [ ] A detailed [project report](Report.md).  Each student should submit the URL that points to this file in their github repo on Canvas.
-- [ ] A 5 minute video demonstration. [project report](Report.md)
-- [ ] Running instructions for the software. [instructions](requirements.txt)
+- [ ] [A 5 minute video demonstration]. (https://drive.google.com/file/d/1OdglIg2WqwwrZ6Xt9pJTuWMMdQ81A2zH/view)
+- [ ] Running [instructions](requirements.txt) for the software. 
 
 
