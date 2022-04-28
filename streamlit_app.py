@@ -5,11 +5,6 @@ from vega_datasets import data
 import numpy as np
 import matplotlib.pyplot as plt
 from TableData import TABLENONE, TABLEREQUIRED, TABLEVOLUNTARY, TABLEEXPIRED
-import folium
-import branca
-# import branca.colormap as cm
-import leafmap.foliumap as leafmap
-import requests
 import time  # to simulate a real time data, time loop
 import plotly.express as px  # interactive charts
 
@@ -36,9 +31,6 @@ with colT2:
     st.title("Trends and Predictions for Renewable & Non-Renewable Energy Production in the U.S.")
 with st.spinner(text="Loading data..."):
     dfProduction, dfStateProd, dfTarget = load_data()
-    # dfProduction
-    # dfStateProd
-    # dfTarget
 colT3,colT4 = st.columns([5,8])
 with colT4:
     st.subheader("Jamie Ho & Yi Zhou")
@@ -79,29 +71,6 @@ def get_state_membership(df, state):
     if state:
         labels &= df['State'].isin(state)
     return labels
-
-
-### Folium map(we tried but gave up) ###
-# m = leafmap.Map(center=(38, -98), zoom=4)
-# polygons = 'us_states.json'
-# m.add_geojson(polygons, layer_name="State")
-
-# geojson_url = 'https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_states.json'
-# response = requests.get(geojson_url)
-# geojson = response.json()
-
-
-# m = folium.Map(location=[38, -98], zoom_start=4)
-# folium.Choropleth(
-#     geo_data=geojson,
-#     data=dfTarget,
-#     columns=['State', 'TypeID'],
-#     key_on='feature.id',
-#     fill_color='Greens',
-#     fill_opacity=0.75,
-#     line_opacity=0.25
-# ).add_to(m)
-# m
 
 ### MAP SET-UP ###
 st.text("\n")
@@ -170,17 +139,6 @@ else:
             selection
         )
     )
-
-
-# to display the map with the legend
-
-# use_container_width = False
-# if st.checkbox('Use container width', True):
-#     use_container_width=True
-
-# cht_expander = st.expander('expander', expanded=False)
-
-# cht_expander.altair_chart(choropleth, use_container_width=use_container_width)
 
 # to adjust the legend positioning
 cLegend = alt.layer(choropleth).configure_legend(
