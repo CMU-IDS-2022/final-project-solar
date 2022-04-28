@@ -16,9 +16,6 @@ Another question we can focus on is: **How long would it take for renewable ener
 1. https://www.eia.gov/state/seds/sep_prod/xls/Prod_dataset.xlsx
 2. https://www.ncsl.org/research/energy/renewable-portfolio-standards.aspx
 
-
- list title, team members, summary image, abstract, link to paper, video, running instructions for the software, link to the application (e.g. a webpage), and other optional materials. Include a breakdown of how the work was split among the group members and a commentary on the project process.
-
  **Work Distribution**
 
 Jamie Ho: Current Targets for Each State & Further Explorations by State(s)
@@ -29,7 +26,7 @@ Yi Zhou: Predictions on renewables and non-renewable energy use & Uncertainty as
 **Final deliverables**
 
 - [ ] A detailed [project report](Report.md).  Each student should submit the URL that points to this file in their github repo on Canvas.
-- [ ] [A 5 minute video demonstration]. (https://drive.google.com/file/d/1OdglIg2WqwwrZ6Xt9pJTuWMMdQ81A2zH/view)
+- [ ] A 5 minute video demonstration. (Link:https://drive.google.com/file/d/1OdglIg2WqwwrZ6Xt9pJTuWMMdQ81A2zH/view)
 - [ ] Running [instructions](requirements.txt) for the software. 
 
 
