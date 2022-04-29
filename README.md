@@ -22,6 +22,7 @@ Jamie Ho: Current Targets for Each State & Further Explorations by State(s)
 
 Yi Zhou: Predictions on renewables and non-renewable energy use & Uncertainty assessment and visualization
 
+The work was evenly split between the two of us. We started the project by discussing possible topics and narrowed it down to something we were both interested in as students in the School of Architecture program. Once we picked the domain of renewable versus nonrenewable energy production, we talked about how we might want to represent the data and clean the data. Throughout the process of designing and coding the Streamlit app, we were very efficient and took turns editing and debugging the code. Overall, we worked really well together to develop this app that investigates the future of renewable energy.
 
 **Final deliverables**
 
